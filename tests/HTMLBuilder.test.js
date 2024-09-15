@@ -1,16 +1,16 @@
 import { describe, it, expect } from "vitest";
-import { HTMLBuilder } from "../htmf"; // Adjust the path
+import { HTMF } from "../htmf"; // Adjust the path
 
 describe("HTMLBuilder", () => {
   it("should create an h1 element with text", () => {
-    const builder = new HTMLBuilder();
+    const builder = new HTMF();
     const result = builder.h1("Hello World").render();
 
     expect(result).toBe("<h1>Hello World</h1>");
   });
 
   it("should create a div with a class and text", () => {
-    const builder = new HTMLBuilder();
+    const builder = new HTMF();
     const result = builder.div("This is a div").css("my-class").render();
 
     expect(result).toBe('<div class="my-class">This is a div</div>');
@@ -30,21 +30,21 @@ describe("HTMLBuilder", () => {
 
 describe("HTMLBuilder nesting", () => {
   it("should nest div and h1 elements correctly by not closing any tags", () => {
-    const builder = new HTMLBuilder();
+    const builder = new HTMF();
     const result = builder.div().h1("Nested Heading").render();
 
     expect(result).toBe("<div><h1>Nested Heading</h1></div>");
   });
 
   it("should nest div and h1 elements correctly by being verbose", () => {
-    const builder = new HTMLBuilder();
+    const builder = new HTMF();
     const result = builder.div().h1("Nested Heading")._h1()._div().render();
 
     expect(result).toBe("<div><h1>Nested Heading</h1></div>");
   });
 
   it("should nest div and h1 elements correctly by using end", () => {
-    const builder = new HTMLBuilder();
+    const builder = new HTMF();
     const result = builder
       .div()
       .h1("Nested Heading")
@@ -57,21 +57,21 @@ describe("HTMLBuilder nesting", () => {
   });
 
   it("should nest div and h1 elements correctly by removing last div", () => {
-    const builder = new HTMLBuilder();
+    const builder = new HTMF();
     const result = builder.div().h1("Nested Heading")._h1().render();
 
     expect(result).toBe("<div><h1>Nested Heading</h1></div>");
   });
 
   it("should nest div and h1 elements correctly by removing last div and using end", () => {
-    const builder = new HTMLBuilder();
+    const builder = new HTMF();
     const result = builder.div().h1("Nested Heading")._h1()._end().render();
 
     expect(result).toBe("<div><h1>Nested Heading</h1></div>");
   });
 
   it("should nest div and h1 elements correctly and adding new div outside", () => {
-    const builder = new HTMLBuilder();
+    const builder = new HTMF();
     const result = builder
       .div()
       .h1("Nested Heading")
@@ -86,7 +86,7 @@ describe("HTMLBuilder nesting", () => {
 
 describe("HTMLBuilder end() multiple times", () => {
   it("should be gracefully closed", () => {
-    const builder = new HTMLBuilder();
+    const builder = new HTMF();
     const result = builder
       .div()
       .h1("Nested Heading")
@@ -104,7 +104,7 @@ describe("HTMLBuilder end() multiple times", () => {
 
 describe("HTMLBuilder close()", () => {
   it("should close a deep nested div", () => {
-    const builder = new HTMLBuilder();
+    const builder = new HTMF();
     const result = builder
       .div()
       .h1("Nested Heading")
@@ -123,7 +123,7 @@ describe("HTMLBuilder close()", () => {
 
 describe("HTMLBuilder close() multiple times", () => {
   it("should be gracefully closed", () => {
-    const builder = new HTMLBuilder();
+    const builder = new HTMF();
     const result = builder
       .div()
       .h1("Nested Heading")

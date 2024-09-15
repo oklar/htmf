@@ -1,4 +1,4 @@
-export class HTMLBuilder {
+export class HTMF {
   constructor() {
     this.elements = [];
     this.currentElement = null;

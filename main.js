@@ -1,7 +1,7 @@
 import "./style.css";
-import { HTMLBuilder } from "./htmf.js";
+import { HTMF } from "./htmf.js";
 
-const html = new HTMLBuilder();
+const html = new HTMF();
 const output2 = html
   .div("Click on me to do a get request")
   .get("http://localhost:3000/products")
