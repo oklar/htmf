@@ -14,8 +14,6 @@ const result = htmf
   .h1("cool")
   .render();
 ```
-
-result:
 ```html
 <div>
   <h1>Nested heading<h1>
