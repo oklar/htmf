@@ -35,7 +35,7 @@ const html = new HTMF()
 ```html
 <template id="qL3eXYC1">
   <div t="name"><div>
-  <div t="price"><div>
+  <div t="price" class="text-green-500"><div>
   <div onclick={post("example.com/cart", "kaU01xUR", "id")}>Buy now</div>
 </template>
 <template id="kaU01xUR">
